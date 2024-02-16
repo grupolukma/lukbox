@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Status</title>
+    <style>
+        .status-circle-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .status-circle {
+            width: 10px; /* Tamanho reduzido */
+            height: 10px; /* Tamanho reduzido */
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+            border: 0.5px solid black; /* Adiciona uma borda preta */
+        }
+
+        .status-label {
+            white-space: nowrap;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1HB25yOvL6KdnlJC3LQqxNLabegorlH5h3wftZ4d51Ds/gviz/tq?tqx=out:csv&sheet=Sheet1');
+
+            query.send(handleQueryResponse);
+        }
+
+        function handleQueryResponse(response) {
+            if (response.isError()) {
+                console.log('Erro ao carregar os dados da planilha: ' + response.getMessage());
+                return;
+            }
+
+            var data = response.getDataTable();
+            var statusColumnIndex = 1; // Índice da coluna com o status (0 para a primeira coluna, 1 para a segunda, etc.)
+
+            var container = document.getElementById('status-container');
+
+            for (var i = 0; i < data.getNumberOfRows(); i++) {
+                var status = data.getValue(i, statusColumnIndex);
+                var label = data.getValue(i, 0);
+
+                var statusCircleContainer = document.createElement('div');
+                var statusDiv = document.createElement('div');
+                var labelDiv = document.createElement('div');
+
+                statusCircleContainer.className = 'status-circle-container';
+                statusDiv.className = 'status-circle';
+                statusDiv.style.backgroundColor = getStatusColor(status);
+                labelDiv.className = 'status-label';
+                labelDiv.textContent = label;
+
+                statusCircleContainer.appendChild(statusDiv);
+                statusCircleContainer.appendChild(labelDiv);
+
+                container.appendChild(statusCircleContainer);
+            }
+        }
+
+        function getStatusColor(status) {
+            var numericStatus = parseFloat(status); // Converte o status para um número
+
+            if (numericStatus >= 10) {
+                return 'green';
+            } else if (numericStatus >= 7) {
+                return 'yellow';
+            } else {
+                return 'red';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Status</h1>
+    <div id="status-container"></div>
+</body>
+</html>
