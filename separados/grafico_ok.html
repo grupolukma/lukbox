@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grafico Producao</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var spreadsheetUrl = "https://docs.google.com/spreadsheets/d/1HB25yOvL6KdnlJC3LQqxNLabegorlH5h3wftZ4d51Ds/gviz/tq?tqx=out:csv&sheet=Sheet1";
+
+      var query = new google.visualization.Query(spreadsheetUrl);
+      query.send(handleQueryResponse);
+    }
+
+    function handleQueryResponse(response) {
+      if (response.isError()) {
+        console.error('Erro ao buscar dados: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        return;
+      }
+
+      var data = response.getDataTable();
+
+      var coluna1 = 1;
+      var numRows = data.getNumberOfRows();
+      var data2 = new google.visualization.DataTable();
+      data2.addColumn('string', 'x');
+      data2.addColumn('number', 'Producao');
+      data2.addColumn({ type: 'string', role: 'annotation' });
+      data2.addColumn('number', 'Meta'); // Adicione uma coluna 'Meta'
+
+      for (var i = 0; i < numRows; i++) {
+        var label = data.getValue(i, 0);
+        var value = data.getValue(i, coluna1);
+        data2.addRow([label, value, '' + value, 10]); // Adicione 10 como o valor da coluna 'Meta' para cada linha
+      }
+
+      var options = {
+        title: 'Grafico Anual',
+        width: 800,
+        height: 400,
+        annotations: {
+    textStyle: {
+      fontSize: 18,
+      bold: true,
+      // The color of the text.
+      color: '#1e2d3b',
+      // The transparency of the text.
+      opacity: 0.8
+    }
+},
+        legend: { position: 'top', alignment: 'center' },
+        vAxis: {
+          minValue: 0,
+          maxValue: 20,
+          ticks: [0, 5, 10, 15, 20],
+          title: 'Valores'
+        },
+        series: {
+          0: {
+            color: '#1e2d3b',
+            pointSize: 8,
+          },
+          1: {
+            color: 'red', // Cor da série 'Meta'
+            lineWidth: 1, // Espessura da linha
+            visibleInLegend: true, // Não mostrar no índice de legenda
+            areaOpacity: 0 // Tornar a área abaixo da linha transparente
+          }
+        },
+        backgroundColor: '#f2f2f2'
+      };
+
+      var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+      chart.draw(data2, options);
+
+    }
+  </script>
+</head>
+<body>
+  <div id="chart_div"></div>
+</body>
+</html>

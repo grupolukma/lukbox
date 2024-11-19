@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="video.css" />
+<title>Lukbox</title>
+</head>
+<body>
+
+<!-- Vídeos -->
+<div class="grid-container">
+<div id="video-container" class="cel video">
+  <video id="video" muted autoplay onended="playNextVideo()">
+    <source src="video1.mp4" type="video/mp4">
+    Seu navegador não suporta vídeos HTML5.
+  </video>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------->
+<script>
+// Lista de vídeos
+const videos = [
+  'video/video1.mp4'
+];
+
+let currentVideoIndex = 0;
+const videoPlayer = document.getElementById('video');
+const videoContainer = document.getElementById('video-container');
+
+// Função para reproduzir o próximo vídeo
+function playNextVideo() {
+  currentVideoIndex++;
+  if (currentVideoIndex >= videos.length) {
+    // Voltar para a página inicial após o último vídeo
+    currentVideoIndex = 0;
+    setTimeout(function() {
+      window.location.href = 'dias.html';
+    }, 10); // 10 minutos em milissegundos
+  } else {
+    videoPlayer.src = videos[currentVideoIndex];
+    videoPlayer.play();
+  }
+}
+
+// Iniciar a reprodução do primeiro vídeo
+videoPlayer.src = videos[currentVideoIndex];
+videoContainer.style.display = 'block';
+videoPlayer.play();
+</script>
+
+</body>
+</html>

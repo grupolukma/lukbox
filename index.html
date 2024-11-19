@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--<meta http-equiv="refresh" content="300" />-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Grafico Producao</title>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript" src="anual.js"></script>
+    <script type="text/javascript" src="mes.js"></script>
+    <script type="text/javascript" src="status.js"></script>
+    <script type="text/javascript" src="dia.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="grid-container">
+      <!-- Seção Anual -->
+      <div class="cel anual">
+        <div id="anual-container"></div>
+      </div>
+
+      <!-- Seção Status -->
+      <div class="cel status">
+        <div id="status-container"></div>
+      </div>
+
+      <!-- Seção Mês -->
+      <div class="cel mes">
+        <div id="mes-container"></div>
+      </div>
+
+      <!-- Seção Bonificação -->
+      <div class="cel bonificacao">
+        <h2>Meta para bonificação</h2>
+        <div class="label">
+          <div class="circle circle-blue"></div>
+          <span>10.54 Bonificação de R$ 400,00</span>
+        </div>
+        <div class="label">
+          <div class="circle circle-light-blue"></div>
+          <span>10.36 à 10.53 Bonificação de R$ 350,00</span>
+        </div>
+        <div class="label">
+          <div class="circle circle-green"></div>
+          <span>10.18 à 10.35 Bonificação de R$ 300,00</span>
+        </div>
+        <div class="label">
+          <div class="circle circle-light-green"></div>
+          <span>10 à 10.17 Bonificação de R$ 250,00</span>
+        </div>
+        <div class="label">
+          <div class="circle circle-yellow"></div>
+          <span>9.82 à 9.99 Bonificação de R$ 200,00</span>
+        </div>
+        <div class="label">
+          <div class="circle circle-light-orange"></div>
+          <span>9.64 à 9.81 Bonificação de R$ 150,00</span>
+        </div>
+        <div class="label">
+          <div class="circle circle-red"></div>
+          <span>Sem Bonificação</span>
+        </div>
+      </div>
+      <!-- Seção Diário -->
+      <div class="cel diario">
+        <div id="dia-chart"></div>
+      </div>
+    </div>
+
+    <script>
+      // Redirecionar para video.html após 10 minutos
+      setTimeout(function() {
+        window.location.href = 'video.html';
+      }, 600000); // 10 minutos em milissegundos 600000
+      </script>
+
+  </body>
+</html>

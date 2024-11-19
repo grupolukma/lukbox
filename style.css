@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  background-color: #033386;
+  /* background: linear-gradient(-45deg, #3087cc, #1e6b9c, #105076, #073546);
+  background-size: 400% 400%;
+  animation: backgroundTransition 8s ease-in-out infinite; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos para a grade */
+.grid-container {
+  height: 100vh;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem; 
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+/* Estilos para as células */
+.cel {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(253, 253, 253, 0.349);
+}
+
+/*  local do ano*/
+.anual {
+  grid-column: 1 / span 5;
+  grid-row: 1 / span 3;
+  display: grid;
+  place-items: center;
+}
+#anual-container {
+  width: 100%;
+  height: 100%;
+}
+
+/*  local do status*/
+.status {
+  grid-column: 6;
+  grid-row: 1 / span 3;
+  display: grid;
+  place-items: center;
+}
+
+#status-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.7rem;
+}
+
+.status-circle-container {
+  display: flex;
+  align-items: center;
+}
+
+.status-circle {
+  width: 2rem;
+  height: 2rem; 
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 1rem;
+  border: .1rem solid black;
+}
+
+.status-label {
+  white-space: nowrap;
+  font-size: 2rem;
+  font-weight: 1000;
+}
+
+/*  local do mes*/
+.mes {
+  grid-column: 1 / span 2;
+  grid-row: 4 / span 2;
+  display: grid;
+  place-items: center;
+}
+#mes-container {
+  width: 100%;
+  height: 100%;
+}
+
+.bonificacao {
+  grid-column: 5 / span 2;
+  grid-row: 4 / span 2;
+  display: grid;
+  justify-content: center;
+}
+
+.bonificacao h2 {
+  font-size: 2rem;
+}
+
+/* Estilos para as labels */
+.label {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para as bolas de cor */
+.circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+  border: 0.05rem solid black; /* Adiciona uma borda preta */
+}
+
+/* Cores das bolas */
+.circle-blue {
+  background-color: #00258b;
+}
+
+.circle-light-blue {
+  background-color: #00ffea;
+}
+
+.circle-green {
+  background-color: #40b40d;
+}
+
+.circle-light-green {
+  background-color: #4bee00;
+}
+
+.circle-yellow {
+  background-color: #FFFF00;
+}
+
+.circle-light-orange {
+  background-color: #EE7600;
+}
+
+.circle-red {
+  background-color: #ff0000;
+}
+
+/*  local do diario*/
+.diario {
+  grid-column: 3 / span 2;
+  grid-row: 4 / span 2;
+  display: grid;
+  place-items: center;
+}
+
+#dia-chart{
+  width: 100%;
+  height: 100%;
+}
+
+
+@keyframes backgroundTransition {
+  0% {
+      background-position: 0% 80%;
+  }
+  50% {
+      background-position: 80% 100%;
+  }
+  100% {
+      background-position: 0% 90%;
+  }
+  
+}
