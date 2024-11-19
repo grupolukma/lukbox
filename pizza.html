@@ -6,7 +6,7 @@
     <title>Gráfico de Pizza com Porcentagem</title>
     <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-bundle.min.js"></script> <!-- Incluindo a biblioteca AnyChart -->
     <link rel="stylesheet" type="text/css" href="dias.css" />
-    <script src="teste.js" defer></script> <!-- Referência para o arquivo JavaScript -->
+    <script src="pizza.js" defer></script> <!-- Referência para o arquivo JavaScript -->
 </head>
 <body>
     <!-- Contêiner para o gráfico -->
@@ -14,5 +14,11 @@
       <div class="cel dias">
     <div id="graficoPizza"></div>
     </div>
+    <script>
+      // Redirecionar para index.html após 10 minutos
+      setTimeout(function() {
+        window.location.href = 'video.html';
+      }, 300000); // 5 minutos em milissegundos 300000
+      </script>
 </body>
 </html>
