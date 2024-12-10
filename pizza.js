@@ -64,6 +64,13 @@ async function carregarDados() {
             // Configurar a legenda para incluir a porcentagem
             chart.legend(true); // Ativa a legenda
 
+            chart.palette([
+                "#FF5733", "#26BD41", "#3357FF", "#F3FF33", "#FF33A1", 
+                "#9D52FF", "#26BDB6", "#FF8C33", "#B833FF", "#33FF94", 
+                "#FF3333", "#33D4FF", "#FFD433", "#A833FF", "#33FF33", 
+                "#FF33D4", "#3385FF", "#FFAF33", "#7733FF", "#33FFA6"
+            ]);
+
             // Modifica a formatação da legenda para incluir a porcentagem
             chart.legend()
                 .itemsFormat("{%x}: {%percent}")  // Formata cada item da legenda para mostrar a categoria e a porcentagem
