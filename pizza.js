@@ -1,8 +1,11 @@
-const sheetId = '1R3wJ34DinqRfVmJ9e30VxM2TGRhwokFLSgbn3k7TNsA';  // Substitua pelo seu ID da planilha
-const nomeAba = new Date().toLocaleDateString('pt-BR').replace(/\//g, '-');  // Nome da aba (data atual)
-const apiKey = 'AIzaSyBY5nGwFZ4s1iWSJE8j6eRUvCpqMBFS1n0';  // Substitua pela sua chave da API
+//const sheetId = '1R3wJ34DinqRfVmJ9e30VxM2TGRhwokFLSgbn3k7TNsA';  // Substitua pelo seu ID da planilha
+const sheetId = '1fqr5XUsXZDRvgHturZAzeg-kPKFGX-hjUhUPT7HjxMs';  // Substitua pelo seu ID da planilha
+//const nomeAba = new Date().toLocaleDateString('pt-BR').replace(/\//g, '-');  // Nome da aba (data atual)
+//const apiKey = 'AIzaSyBY5nGwFZ4s1iWSJE8j6eRUvCpqMBFS1n0';  // Substitua pela sua chave da API
 
-const sheetUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${nomeAba}?key=${apiKey}`;
+const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=data`;
+//const sheetUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${nomeAba}?key=${apiKey}`;
+//const sheetUrl = `https://docs.google.com/spreadsheets/d/1fqr5XUsXZDRvgHturZAzeg-kPKFGX-hjUhUPT7HjxMs/gviz/tq?tqx=out:csv&sheet=teste`;
 
 // Função para carregar os dados da planilha
 async function carregarDados() {

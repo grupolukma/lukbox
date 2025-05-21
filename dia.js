@@ -2,7 +2,8 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawDonutChart);
 
 function drawDonutChart() {
-  var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1HB25yOvL6KdnlJC3LQqxNLabegorlH5h3wftZ4d51Ds/gviz/tq?tqx=out:csv&sheet=dia');
+  //var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1HB25yOvL6KdnlJC3LQqxNLabegorlH5h3wftZ4d51Ds/gviz/tq?tqx=out:csv&sheet=dia');
+  var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1fqr5XUsXZDRvgHturZAzeg-kPKFGX-hjUhUPT7HjxMs/gviz/tq?tqx=out:csv&sheet=dia');
   
   query.send(function(response) {
     if (response.isError()) {
